@@ -80,7 +80,7 @@
                                             </td>
                                             <td>
                                                 <span class="d-block little-td">Total</span>
-                                                <span class="d-block font-weight-bold text-success" id="total_trk">Rp 78.000</span>
+                                                <span class="d-block font-weight-bold text-success" id="total_trk"></span>
                                             </td>
                                         </tr>
                                     </table>
@@ -346,9 +346,9 @@
                             $('#successModal').find('#kdtransaksi').text(response.data.kode_transaksi)
                             $('#successModal').find('#tanggal').text(response.data.created_at)
                             $('#successModal').find('#casir').text(response.data.kasir)
-                            $('#successModal').find('#total_trk').text(response.data.total)
-                            $('#successModal').find('#money').text(response.data.bayar)
-                            $('#successModal').find('#back').text(response.data.kembali)
+                            $('#successModal').find('#total_trk').text(rupiah(response.data.total))
+                            $('#successModal').find('#money').text(rupiah(response.data.bayar))
+                            $('#successModal').find('#back').text(rupiah(response.data.kembali))
                         } else if (response.type == 'warning') {
                             
                             let alertbayar = $('#alertbayar')

@@ -30,7 +30,7 @@
                                 <th>Tanggal Pembelian</th>
                                 <th>Keterangan</th>
                                 <th>Jumlah</th>
-                                <th>invoicceeee</th>
+                                <th>invoice</th>
                             </tr>
                         </thead>
                         <tbody class="table-border-bottom-0">
@@ -40,6 +40,7 @@
                                 <td>{{ date('d M Y', strtotime($row->tanggal_pembelian)) }}</td>
                                 <td>{{ $row->keterangan }}</td>
                                 <td>Rp.{{ $row->jumlah_pembelian }}</td>
+                                <td ><img class="rounded float-start" src="{{ asset('invoice/' . $row->invoice) }}" width="80px" height="80px"></td>
                                 <td>
                                     <form action="{{ route('outflow.delete', $row->id) }}" method="post">
                                         @csrf

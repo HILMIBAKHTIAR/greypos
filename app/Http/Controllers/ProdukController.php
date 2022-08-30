@@ -56,7 +56,6 @@ class ProdukController extends Controller
             unset($input['bahan_qty']);
             unset($input['stock_id']);
             unset($input['_token']); // dihapus karena insertGetId tidak dapat menerima _token
-
             $input['photo'] = time() . '.' . $request->photo->getClientOriginalExtension();
             $request->photo->move(public_path('photo'), $input['photo']);
             try {

@@ -25,9 +25,12 @@ class OutflowController extends Controller
             'tanggal_pembelian' => 'required',
             'keterangan' => 'required',
             'jumlah_pembelian' => 'required',
+            'invoice'=>'required'
         ]);
 
         $data_outflow = new Outflow();
+        $data_outflow['invoice'] = time() . '.' . $request->invoice->getClientOriginalExtension();
+        $request->invoice->move(public_path('invoice'), $data_outflow['invoice']);
         $data_outflow->tanggal_pembelian           = $request->tanggal_pembelian;
         $data_outflow->keterangan                       = $request->keterangan;
         $data_outflow->jumlah_pembelian            = $request->jumlah_pembelian;

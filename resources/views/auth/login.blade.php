@@ -37,6 +37,7 @@
 			<div class="wrap-login100">
 				<form class="login100-form validate-form" method="POST" action="{{ route('login') }}">
           @csrf
+		  <img src="{{ url('/loginview/images/greylg.png') }}" class="rounded mx-auto d-block mb-1" width="120px" height="80px" alt="">
 					<span class="login100-form-title p-b-43">
 						Grey Pos
 					</span>

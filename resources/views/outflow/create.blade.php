@@ -15,24 +15,33 @@
                       enctype="multipart/form-data">
                       @csrf
                       <div class="row">
-                          <div class="col-md-4">
+                          <div class="col-md-6">
                               <div class="form-group">
                                   <label class="form-label" for="basic-default-company">Tanggal Pembelian</label>
                                   <input class="form-control" type="date" value="{{Carbon\Carbon::now()->format('d-m-Y')."T".Carbon\Carbon::now()->format('H:i')}}" name="tanggal_pembelian" />
                               </div>
                           </div>
-                          <div class="col-md-4">
+                          <div class="col-md-6">
                               <div class="form-group">
                                   <label class="form-label" for="basic-default-company">Keterangan</label>
                                   <input name="keterangan" type="text" class="form-control" placeholder="Input pembelian" />
                               </div>
                           </div>
-                          <div class="col-md-4">
-                              <div class="form-group">
-                                  <label class="form-label" for="basic-default-company">Jumlah Pembelian</label>
-                                  <input name="jumlah_pembelian" type="number" class="form-control" placeholder="Rp.." id="dengan_rupiah"/>
-                              </div>
-                          </div>
+
+                      </div>
+                      <div class="row">
+                        <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="form-label" for="basic-default-company">Jumlah Pembelian</label>
+                                    <input name="jumlah_pembelian" type="number" class="form-control" placeholder="Rp.." id="dengan_rupiah"/>
+                                </div>                            
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="form-label" for="basic-default-company">invoice</label>
+                                <input name="invoice" type="file" class="form-control" placeholder="Rp.." id="dengan_rupiah"/>
+                            </div>                            
+                        </div>
                       </div>
                       <div class="modal-footer">
                           <input type="submit" class="btn btn-success btn-lg" name="simpan" id="simpan" value="simpan"

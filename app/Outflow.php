@@ -12,5 +12,6 @@ class Outflow extends Model
         'tanggal pembelian',
         'keterangan',
         'jumlah_pembelian',
+        'invoice'
     ];
 }

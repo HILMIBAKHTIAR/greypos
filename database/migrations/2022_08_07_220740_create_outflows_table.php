@@ -18,6 +18,7 @@ class CreateOutflowsTable extends Migration
             $table->date('tanggal_pembelian');
             $table->text('keterangan');
             $table->integer('jumlah_pembelian');
+            $table->string('invoice');
             $table->timestamps();
         });
     }
