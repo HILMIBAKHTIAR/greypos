@@ -61,14 +61,15 @@ class ProdukController extends Controller
             try {
                 $id = Produk::insertGetId($input);
                 $data_bahan = [];
-                foreach ($stock_id as $key => $value) {
-                    array_push($data_bahan, [
-                        'produk_id' => $id,
-                        'stock_id' => $stock_id[$key],
-                        'qty' => $request->bahan_qty[$key],
-                    ]);
+                if ($stock_id) {
+                    foreach ($stock_id as $key => $value) {
+                        array_push($data_bahan, [
+                            'produk_id' => $id,
+                            'stock_id' => $stock_id[$key],
+                            'qty' => $request->bahan_qty[$key],
+                        ]);
+                    }
                 }
-
                 Bahan::insert($data_bahan);
             } catch (\Illuminate\Database\QueryException  $irr) {
                 return redirect('/produk')->with('erorr', 'kesalah input silahkan hubungi tim developer');

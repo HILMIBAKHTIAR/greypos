@@ -24,6 +24,8 @@ class CreateTransactionsTable extends Migration
             $table->integer('kembali');
             $table->string('id_kasir');
             $table->string('kasir');
+            $table->string('pembeli');
+            $table->string('no_meja');
             $table->timestamps();
         });
     }

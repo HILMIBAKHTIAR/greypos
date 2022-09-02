@@ -4,9 +4,8 @@
             {{-- <span class="app-brand-logo demo">
                 <img src="{{ asset('/assets/img/greylogo.png') }}" alt="Brand Logo" class="img-fluid" style="width: 70px;height:70px">
             </span> --}}
-            <span class="app-brand-text demo">
-                <span class="text-brand">GREY</span>
-                <span class="text-muted">POS</span>
+            <span class="app-brand-text demo menu-text fw-bolder ms-2">
+                GREY COFFEE
             </span>
             {{-- <div>
                 <span class="text-brand">GREY POS</span>

@@ -88,6 +88,8 @@ class TransactionManageController extends Controller
                 'diskon' => $req->diskon ?? 0,
                 'total' => $req->total,
                 'bayar' => $req->bayar,
+                'pembeli' => $req->pembeli,
+                'no_meja' => $req->no_meja,
                 'kembali' => $req->bayar - $req->total,
                 'id_kasir' => Auth::id(),
                 'kasir' => Auth::user()->name,

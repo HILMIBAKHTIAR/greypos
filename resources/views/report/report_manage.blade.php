@@ -30,6 +30,7 @@
   
   <div class="content-wrapper">
     <!-- Content -->
+    
     <div class="container-xxl flex-grow-1 container-p-y">
         <div class="row mt-2">
             <div class="col-md-12 justify-content-center">
@@ -45,6 +46,7 @@
                             <th>Bayar</th>
                             <th>Kembali</th>
                             <th>tanggal</th>
+                            <th>Pembeli</th>
                             <th>Kasir</th>
                             {{-- <th>Actions</th> --}}
                           </tr>
@@ -58,6 +60,7 @@
                             <td>{{ $row->bayar }}</td>
                             <td>{{ $row->kembali }}</td>
                             <td>{{ date('d M Y h:i', strtotime($row->created_at))}}</td>
+                            <td>{{ $row->pembeli }}</td>
                             <td>
                                 @if($row->kasir == 'admin')
                                     <button type="button" class="btn btn-admin">{{ $row->kasir }}</button>

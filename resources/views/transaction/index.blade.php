@@ -72,6 +72,11 @@
                                                 <span
                                                     class="d-block font-weight-bold" id="tanggal">17 agustus 1945</span>
                                             </td>
+                                            <td>
+                                                <span class="d-block little-td">Pembeli</span>
+                                                <span
+                                                    class="d-block font-weight-bold" id="orang">17 agustus 1945</span>
+                                            </td>
                                         </tr>
                                         <tr>
                                             <td>
@@ -82,6 +87,10 @@
                                                 <span class="d-block little-td">Total</span>
                                                 <span class="d-block font-weight-bold text-success" id="total_trk"></span>
                                             </td>
+                                            <td>
+                                                <span class="d-block little-td">meja</span>
+                                                <span class="d-block font-weight-bold text-success" id="meja"></span>
+                                            </td>
                                         </tr>
                                     </table>
                                     <table class="table-summary mt-3">
@@ -89,11 +98,11 @@
                                             <td class="line-td" colspan="2"></td>
                                         </tr>
                                         <tr>
-                                            <td class="little-td big-td" >Bayar</td>
+                                            <td class="little-td big-td" ><strong>Bayar</strong></td>
                                             <td id="money">Rp 80.000</td>
                                         </tr>
                                         <tr>
-                                            <td class="little-td big-td">Kembali</td>
+                                            <td class="little-td big-td"><strong>Kembali</strong></td>
                                             <td id="back">Rp.2000</td>
                                         </tr>
                                     </table>
@@ -113,7 +122,6 @@
             {{-- @endif --}}
             <div class="col-md-4">
                 <form method="POST" name="" id="transaction_form"
-                    {{-- action="{{ route('transaction.process') }}"> --}}
                     @csrf
                     <div class="row">
                         <div class="card">
@@ -122,7 +130,7 @@
                                     <table class="table-payment-1">
                                         <tr class="kd-transaction">
                                             <td class="text-left">kode transaksi</td>
-                                            <td class="text-right">T{{ date('dmYHis') }}</td>
+                                            <td class="text-right"><strong>T{{ date('dmYHis') }}</strong></td>
                                             <input type="text" name="kode_transaksi" value="T{{ date('dmYHis') }}"
                                                 hidden="">
                                         </tr>
@@ -179,17 +187,23 @@
                                 </div>
 
                                 <div id="info-pembayaran" class="d-none">
-                                    <!-- // diskon -->
-                                    {{-- <div class="d-flex align-items-center mb-2">
-                                        <div class="flex-grow-1">
-                                            <p class="fs-5 m-0">Diskon</p>
-                                            <a href="javascript:void(0)"><small>Ubah diskon</small></a>
+                                    <!-- // pembeli dan no meja -->
+                                    <div class="d-flex align-items-center mb-2">
+                                        <div class="">
+                                            <p class="fs-5 m-0"><strong>Pembeli</strong></p>
+                                            <input name="pembeli" type="text" class="form-control" placeholder="nama" />
                                         </div>
                                         <div class="">
-                                            <p class="m-0 fs-3"><b>33%</b></p>
+                                            <p class="p-0 m-0 mb-1"><strong>Meja</strong></p>
+                                            <select name="no_meja" class="form-control">
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                              </select>
                                         </div>
-                                    </div> --}}
-
+                                    </div>
                                     <!-- // subtotal -->
                                     <div class="d-flex align-items-center">
                                         <div class="flex-grow-1">
@@ -349,6 +363,8 @@
                             $('#successModal').find('#total_trk').text(rupiah(response.data.total))
                             $('#successModal').find('#money').text(rupiah(response.data.bayar))
                             $('#successModal').find('#back').text(rupiah(response.data.kembali))
+                            $('#successModal').find('#orang').text(response.data.pembeli)
+                            $('#successModal').find('#meja').text(response.data.no_meja)
                         } else if (response.type == 'warning') {
                             
                             let alertbayar = $('#alertbayar')

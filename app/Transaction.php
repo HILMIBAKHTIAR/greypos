@@ -18,6 +18,8 @@ class Transaction extends Model
         'kembali',
         'id_kasir',
         'kasir',
+        'pembeli',
+        'no_meja',
     ];
 
     public function detailTransaksi()

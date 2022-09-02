@@ -14,17 +14,17 @@ class DatabaseSeeder extends Seeder
     {
         // $this->call(UserSeeder::class);
         DB::table('users')->insert([
-            'name' => 'rijal',
-            'email' => 'kasir@gmail.com',
-            'role' => 'kasir',
+            'name' => 'admin',
+            'email' => 'admin@gmail.com',
+            'role' => 'admin',
             'foto' => 'default.jpg',
-            'username' => 'rijal',
+            'username' => 'admin',
             'password' => bcrypt('admin123'),
         ]);
 
         DB::table('acces')->insert([
-            'user' => 2,
-            'kelola_akun' => 0,
+            'user' => 1,
+            'kelola_akun' => 1,
             'kelola_produk' => 1,
             'transaksi' => 1,
             'kelola_laporan' => 1,
