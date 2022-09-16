@@ -60,7 +60,7 @@
                             <td>{{ $row->bayar }}</td>
                             <td>{{ $row->kembali }}</td>
                             <td>{{ date('d M Y h:i', strtotime($row->created_at))}}</td>
-                            <td>{{ $row->pembeli }}</td>
+                            <td>{{ $row->pembeli }} meja {{ $row->no_meja }}</td>
                             <td>
                                 @if($row->kasir == 'admin')
                                     <button type="button" class="btn btn-admin">{{ $row->kasir }}</button>
