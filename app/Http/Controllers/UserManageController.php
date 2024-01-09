@@ -64,6 +64,7 @@ class UserManageController extends Controller
                 $users->foto = $foto->getClientOriginalName();
                 $foto->move(public_path('pictures/'), $foto->getClientOriginalName());
                 $users->email = $req->email;
+                $users->gaji = $req->gaji;
                 $users->username = $req->username;
                 $users->password = Hash::make($req->password);
                 $users->remember_token = Str::random(60);
@@ -150,13 +151,17 @@ class UserManageController extends Controller
         $req->validate([
             'name' => 'required',
             'email' => 'email',
+            'username' => 'required',
+            'gaji' => 'required',
             'password' => 'required',
-            'role' => 'required',
+            'role' => 'required'
         ]);
 
         $user = User::find($id);
         $user->name = $req->get('name');
         $user->email = $req->get('email');
+        $user->username = $req->get('username');
+        $user->gaji = $req->get('gaji');
         $user->role = $req->get('role');
         $user->password = $req->get('password');
         if ($req->password != null) {
@@ -180,7 +185,7 @@ class UserManageController extends Controller
             $access->save();
         }
         $user->update();
-        return redirect('/users$users', with('success', 'akun berhasil di ubah'));
+        return redirect('/user', with('message', 'akun berhasil di ubah'));
         // $users->save();
 
     }

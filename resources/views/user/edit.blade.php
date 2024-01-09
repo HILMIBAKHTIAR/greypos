@@ -7,7 +7,8 @@
     <div class="col-xxl">
         <div class="card mb-4">
             <div class="card-header d-flex align-items-center justify-content-between">
-                <h5 class="mb-0">Edit Data Stock</h5>
+                <h5 class="mb-0">Edit Data User</h5>
+                <a href="{{ route('user') }}" class="btn btn-primary btn-sm">Back</a>
             </div>
             <div class="card-body">
                 <form action="{{ route('user.update', $user->id) }}" method="post">
@@ -30,6 +31,22 @@
                         </div>
                     </div>
                     <div class="row mb-3">
+                        <label class="col-sm-2 col-form-label" for="basic-default-name">username</label>
+                        <div class="col-sm-10">
+                            <input name="username" value="{{ $user->username }}" type="text"
+                                class="form-control @error('username') is-invalid @enderror"
+                                value="{{ old('username') }}" />
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <label class="col-sm-2 col-form-label" for="basic-default-name">gaji</label>
+                        <div class="col-sm-10">
+                            <input name="gaji" value="{{ $user->gaji }}" type="number"
+                                class="form-control @error('gaji') is-invalid @enderror"
+                                value="{{ old('gaji') }}" />
+                        </div>
+                    </div>
+                    <div class="row mb-3">
                         <label class="col-sm-2 col-form-label" for="basic-default-name">Password</label>
                         <div class="col-sm-10">
                             <input name="password" value="{{ $user->password }}" type="password"
@@ -38,7 +55,7 @@
                         </div>
                     </div>
                     <div class="row mb-3">
-                        <label class="col-sm-2 col-form-label" for="basic-default-name">nama</label>
+                        <label class="col-sm-2 col-form-label" for="basic-default-name">Role</label>
                         <div class="col-sm-10">
                             <select name="{{ $user->role }}" class="form-control">
                                 <option value="admin">Admin</option>

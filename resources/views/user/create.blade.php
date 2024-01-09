@@ -66,6 +66,14 @@
                         </div>
                       </div>
                     </div>
+                    <div class="row">
+                       <div class="col-md-6">
+                        <div class="form-group">
+                          <label class="form-label" for="basic-default-message">Gaji</label>
+                          <input name="gaji" type="number" class="form-control"  placeholder="Masukan gaji" />
+                        </div>
+                      </div>
+                    </div>
                     <div class="modal-footer">
                       <input type="submit" class="btn btn-success btn-lg" name="simpan" id="simpan" value="simpan"
                       style="padding: 5px 50px; margin-top: 10px;">
