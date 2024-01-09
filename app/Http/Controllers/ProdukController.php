@@ -146,6 +146,6 @@ class ProdukController extends Controller
         //
         $data_produk = Produk::findOrFail($id);
         $data_produk->delete();
-        return redirect('/produk')->with('status', 'Data produk berhasil dihapus');
+        return redirect('/produk')->with('message', 'Data produk berhasil dihapus');
     }
 }

@@ -34,7 +34,7 @@
 
             @if (Auth::user()->role == 'admin')
             <!-- inventori -->
-        <li class="menu-item  {{ request()->is('supplier*')|| request()->is('stock*')? 'active open' : '' }}">
+        <li class="menu-item  {{ request()->is('supplier*')|| request()->is('stock*')|| request()->is('perusahaan*')? 'active open' : '' }}">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-box"></i>
                 <div data-i18n="Layouts">Inventori</div>
@@ -44,6 +44,12 @@
                 <li class="menu-item {{ request()->is('supplier*') ? 'active' : '' }}">
                     <a href="{{route('supplier')}}" class="menu-link">
                         <div data-i18n="Without navbar">supplier</div>
+                    </a>
+                </li>
+
+                <li class="menu-item {{ request()->is('perusahaan*') ? 'active' : '' }}">
+                    <a href="{{route('perusahaan.index')}}" class="menu-link">
+                        <div data-i18n="Without navbar">Perusahaan</div>
                     </a>
                 </li>
 
@@ -112,16 +118,16 @@
         @if (Auth::user()->role == 'admin')
         {{-- User --}}
         {{-- user --}}
-        <li class="menu-item {{ request()->is('user') ? 'active' : '' }}">
+        {{-- <li class="menu-item {{ request()->is('user') ? 'active' : '' }}">
             <a href="{{route('user')}}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-user"></i>
                 <div data-i18n="Analytics">User</div>
             </a>
-        </li>
-        {{-- <li class="menu-item {{ request()->is('user*')|| request()->is('acces*')? 'active open' : '' }}">
+        </li> --}}
+        <li class="menu-item {{ request()->is('user*')|| request()->is('lembur*')? 'active open' : '' }}">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-user"></i>
-                <div data-i18n="Account Settings">User</div>
+                <div data-i18n="Account Settings">Employee</div>
             </a>
             <ul class="menu-sub">
                 <li class="menu-item {{ request()->is('user*') ? 'active' : '' }}">
@@ -130,7 +136,14 @@
                     </a>
                 </li>
             </ul>
-        </li> --}}
+             <ul class="menu-sub">
+                <li class="menu-item {{ request()->is('lembur*') ? 'active' : '' }}">
+                    <a href="{{ route('lembur') }}" class="menu-link">
+                        <div data-i18n="Account">Lembur</div>
+                    </a>
+                </li>
+            </ul>
+        </li>
         @endif
 
         

@@ -20,19 +20,25 @@ use function PHPSTORM_META\type;
 class TransactionManageController extends Controller
 {
     //fungsi menampilkan halaman transaksi
-    public function viewTransaction()
+    // public function viewTransaction()
+    // {
+    //     //
+    //     // $id_account = Auth::id();
+    //     $data_produk = Produk::all();
+    //     // $check_access = Acces::where('user', $id_account)->first();
+    //     // $check_access = Access::where('id_user', $id_account)->first();
+    //     if ($check_access->transaksi > 1) {
+    //         $data_produk = Produk::all();
+    //         return view('transaction.index', compact('data_produk'));
+    //     } else {
+    //         return back();
+    //     }
+    // }
+
+    public function index()
     {
-        //
-        $id_account = Auth::id();
         $data_produk = Produk::all();
-        $check_access = Acces::where('user', $id_account)->first();
-        // $check_access = Access::where('id_user', $id_account)->first();
-        if ($check_access->transaksi == 1) {
-            $data_produk = Produk::all();
-            return view('transaction.index', compact('data_produk'));
-        } else {
-            return back();
-        }
+        return view('transaction.index', compact('data_produk'));
     }
 
     // Take Transaction Product 
@@ -42,8 +48,8 @@ class TransactionManageController extends Controller
         $id_account = Auth::id();
         $check_access = Acces::where('user', $id_account)
             ->first();
-        if ($check_access->transaksi == 1) {
-            $product = Product::where('kode_barang', '=', $id)
+        if ($check_access->transaksi < 1) {
+            $product = Produk::where('kode_barang', '=', $id)
                 ->first();
             return response()->json([
                 'nama_produk' => $data_produk->nama_produk,
@@ -66,14 +72,10 @@ class TransactionManageController extends Controller
     // fungsi proses transaksi
     public function transactionProcess(Request $req)
     {
-        //
-        // return json_encode($req->all());
         $id_account = Auth::id();
         $check_access = Acces::where('user', $id_account)
             ->first();
         if ($check_access->transaksi == 1) {
-            // $jml_produk = count($req->kode_produk);
-
             if ((int)$req->bayar < (int)$req->total) {
                 return json_encode([
                     'type' => 'warning',
